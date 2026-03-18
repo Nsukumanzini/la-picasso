@@ -1,0 +1,12 @@
+{
+  "extends": ["next/core-web-vitals", "plugin:tailwindcss/recommended"],
+  "plugins": ["tailwindcss"],
+  "rules": {
+    "tailwindcss/classnames-order": "warn"
+  },
+  "settings": {
+    "tailwindcss": {
+      "config": "./tailwind.config.ts"
+    }
+  }
+}
