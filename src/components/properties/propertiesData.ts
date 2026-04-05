@@ -109,7 +109,7 @@ export const propertyRecords: PropertyRecord[] = [
   },
   {
     id: "la-picasso",
-    name: "La Picasso",
+    name: "La Picasso Guest House",
     slug: "la-picasso",
     description:
       "Stylish student home with a gym and boardroom, great for study sessions and group work.",
@@ -176,7 +176,7 @@ export const propertyRecords: PropertyRecord[] = [
   },
   {
     id: "pablo",
-    name: "Pablo",
+    name: "Pablo Guest house",
     slug: "pablo",
     description:
       "Friendly res with social lounges and outdoor space, safe and great for studying.",
@@ -257,7 +257,7 @@ export const propertyRecords: PropertyRecord[] = [
   },
   {
     id: "28",
-    name: "28",
+    name: "28 Genl Hertzog",
     slug: "28",
     description:
       "Small, calm res with a focused vibe, safe and secure for serious study.",

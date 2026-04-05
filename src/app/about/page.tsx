@@ -39,8 +39,13 @@ export default function AboutPage() {
             La Picasso Property Group
           </h1>
           <p className="mt-4 max-w-2xl text-sm text-neutral-600">
-            We are a student-first res group in Ermelo. Our focus is simple: safe,
-            reliable, and modern homes that are fully covered by NSFAS.
+            We offer four NSFAS-accredited residences within easy walking distance of Ermelo campus.
+          </p>
+          <p className="mt-4 max-w-2xl text-sm text-neutral-600">
+            We are centrally located and easily accessible to all the daily essentials a student might need, including local shops, clinics, the hospital, and the shopping mall. To help you unwind after classes, we also offer recreational facilities in the form of board games and soccer.
+          </p>
+          <p className="mt-4 max-w-2xl text-sm text-neutral-600">
+            Our Residence Committee is proudly led by registered students, who are here to actively look after their peers' needs and ensure a welcoming community for everyone.
           </p>
           <div className="mt-6 flex flex-wrap gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-600">
             <span className="rounded-full border border-white/60 bg-white/80 px-3 py-1">
@@ -85,14 +90,14 @@ export default function AboutPage() {
             <h2 className="mt-2 font-serif text-2xl text-neutral-900">
               Built for focused students
             </h2>
-            <p className="mt-3 text-sm text-neutral-600">
-              La Picasso Property Group started with one goal: give NSFAS students
-              a res that feels safe, clean, and reliable. Today, we manage four
-              residences near campus with consistent standards across all sites.
+              <p className="mt-3 text-sm text-neutral-600">
+              We are a student accommodation group with four (4) unique properties. All our properties are 100% NSFAS Accredited, and each one is situated within a short walking distance to the Ermelo campus.
             </p>
             <p className="mt-3 text-sm text-neutral-600">
-              We handle the admin directly with NSFAS, so students can focus on
-              learning and building their future.
+              We are centrally located and easily accessible to all the daily essentials a student might need, including local shops, clinics, the hospital, and the shopping mall. To help you unwind after classes, we also offer recreational facilities in the form of board games and soccer.
+            </p>
+            <p className="mt-3 text-sm text-neutral-600">
+              Our Residence Committee is proudly led by registered students, who are here to actively look after their peers' needs and ensure a welcoming community for everyone.
             </p>
           </div>
           <div className="rounded-3xl border border-white/40 bg-white/80 p-6 shadow-lg backdrop-blur">

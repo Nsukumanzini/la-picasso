@@ -23,7 +23,7 @@ export default function MapPreview() {
                   href={property.googleMapsLink}
                   target="_blank"
                   rel="noreferrer"
-                  className="rounded-xl border border-white/40 bg-white/70 px-4 py-3 shadow-sm backdrop-blur transition hover:border-picasso-brown/40"
+                  className="rounded-xl border border-white/40 bg-white/70 px-4 py-3 shadow-sm backdrop-blur transition hover:border-picasso-brown/40 block truncate"
                 >
                   {property.name}
                 </a>

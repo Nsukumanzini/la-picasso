@@ -59,7 +59,7 @@ function PropertyPreviewCard({ property }: { property: PropertyPreview }) {
         </div>
       </div>
       <div className="space-y-3 p-5">
-        <h3 className="text-lg font-semibold text-neutral-900">
+        <h3 className="text-lg font-semibold text-neutral-900 truncate">
           {property.name}
         </h3>
         {property.distanceToCampus ? (

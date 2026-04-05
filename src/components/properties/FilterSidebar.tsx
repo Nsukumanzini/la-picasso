@@ -4,7 +4,7 @@ import { useState } from "react";
 import type { PropertyFilters } from "./types";
 import { accommodationOptions } from "./propertiesData";
 
-const propertyNames = ["", "Legends Lodge", "La Picasso", "Pablo", "28"];
+const propertyNames = ["", "Legends Lodge", "La Picasso Guest House", "Pablo Guest house", "28 Genl Hertzog"];
 
 type FilterSidebarProps = {
   filters: PropertyFilters;

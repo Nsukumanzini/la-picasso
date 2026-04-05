@@ -35,7 +35,13 @@ export default function AccommodationGrid() {
             Designed for modern student life
           </h2>
           <p className="text-sm text-neutral-600">
-            Every detail is curated for comfort, safety, and community.
+            We are a student accommodation group with four (4) unique properties. All our properties are 100% NSFAS Accredited, and each one is situated within a short walking distance to the Ermelo campus.
+          </p>
+          <p className="text-sm text-neutral-600">
+            We are centrally located and easily accessible to all the daily essentials a student might need, including local shops, clinics, the hospital, and the shopping mall. To help you unwind after classes, we also offer recreational facilities in the form of board games and soccer.
+          </p>
+          <p className="text-sm text-neutral-600">
+            Our Residence Committee is proudly led by registered students, who are here to actively look after their peers' needs and ensure a welcoming community for everyone.
           </p>
         </div>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">

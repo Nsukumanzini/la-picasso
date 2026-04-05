@@ -85,11 +85,11 @@ export default function PropertyCard({ property, viewMode }: PropertyCardProps) 
 
       <div className="flex flex-col justify-between gap-4 p-5">
         <div className="space-y-3">
-          <div className="flex items-center justify-between">
-            <h3 className="text-lg font-semibold text-neutral-900">
+          <div className="flex items-center justify-between gap-2">
+            <h3 className="text-lg font-semibold text-neutral-900 truncate">
               {property.name}
             </h3>
-            <span className="rounded-full border border-picasso-brown/40 bg-picasso-light/40 px-3 py-1 text-xs font-semibold text-picasso-brown">
+            <span className="rounded-full border border-picasso-brown/40 bg-picasso-light/40 px-3 py-1 text-xs font-semibold text-picasso-brown flex-shrink-0">
               {property.roomTypes.join(" / ")}
             </span>
           </div>

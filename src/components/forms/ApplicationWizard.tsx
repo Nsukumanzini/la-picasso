@@ -206,9 +206,9 @@ export default function ApplicationWizard({
               >
                 <option value="">Select property</option>
                 <option value="legends-lodge">Legends Lodge</option>
-                <option value="la-picasso">La Picasso</option>
-                <option value="pablo">Pablo</option>
-                <option value="28">28</option>
+                <option value="la-picasso">La Picasso Guest House</option>
+                <option value="pablo">Pablo Guest house</option>
+                <option value="28">28 Genl Hertzog</option>
               </select>
               {errors.property && (
                 <p className="mt-1 text-xs text-rose-500">

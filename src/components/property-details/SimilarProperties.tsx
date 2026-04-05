@@ -40,7 +40,7 @@ export default function SimilarProperties({ currentSlug }: SimilarPropertiesProp
                   }}
                 />
               </div>
-              <h3 className="mt-3 text-lg font-semibold text-neutral-900">
+              <h3 className="mt-3 text-lg font-semibold text-neutral-900 truncate">
                 {property.name}
               </h3>
               <p className="mt-1 text-sm text-neutral-600">

@@ -9,8 +9,8 @@ export default function Footer() {
             La Picasso Property Group
           </p>
           <p className="text-sm text-white/70">
-            Premium student residences in Ermelo with secure res, modern features,
-            and a supportive community.
+            We are a student accommodation group with four (4) unique properties.
+            All our properties are 100% NSFAS Accredited, and each one is situated within a short walking distance to the Ermelo campus.
           </p>
         </div>
         <div className="space-y-3 text-sm">
@@ -25,17 +25,17 @@ export default function Footer() {
             </li>
             <li>
               <Link className="transition hover:text-white" href="/properties/la-picasso">
-                La Picasso
+                La Picasso Guest House
               </Link>
             </li>
             <li>
               <Link className="transition hover:text-white" href="/properties/pablo">
-                Pablo
+                Pablo Guest house
               </Link>
             </li>
             <li>
               <Link className="transition hover:text-white" href="/properties/28">
-                28
+                28 Genl Hertzog
               </Link>
             </li>
           </ul>
