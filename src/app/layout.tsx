@@ -7,6 +7,7 @@ import GlobalBackButton from "@/components/navigation/GlobalBackButton";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ScrollProgress from "@/components/ui/ScrollProgress";
+import SplashScreen from "@/components/ui/SplashScreen";
 import { ToastProvider } from "@/components/ui/Toast";
 
 const headingFont = Playfair_Display({
@@ -62,6 +63,7 @@ export default function RootLayout({
       <body
         className={`${headingFont.variable} ${bodyFont.variable} bg-picasso-light/30 text-neutral-900 antialiased`}
       >
+        <SplashScreen />
         <ToastProvider>
           <ScrollProgress />
           <Navbar />

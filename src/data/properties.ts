@@ -135,7 +135,7 @@ export const properties: PropertyRecord[] = [
   },
   {
     id: "la-picasso",
-    name: "La Picasso",
+    name: "La Picasso Guest House",
     description:
       "Stylish student home with a gym and boardroom, great for study sessions and group work.",
     slug: "la-picasso",
@@ -151,13 +151,21 @@ export const properties: PropertyRecord[] = [
         "/assets/properties/la-picasso/main.jpeg",
         "/assets/properties/la-picasso/gym.jpeg",
         "/assets/properties/la-picasso/boardroom.jpeg",
-        "/assets/properties/la-picasso/sitting.jpeg",
+        "/assets/properties/la-picasso/sitting-1.jpeg",
+        "/assets/properties/la-picasso/sitting-2.jpeg",
+        "/assets/properties/la-picasso/sitting-3.jpeg",
+        "/assets/properties/la-picasso/sitting-4.jpeg",
         "/assets/properties/la-picasso/outside-1.jpeg",
       ],
     },
     gallery: {
       kitchen: [],
-      sittingAreas: [],
+      sittingAreas: [
+        "/assets/properties/la-picasso/sitting-1.jpeg",
+        "/assets/properties/la-picasso/sitting-2.jpeg",
+        "/assets/properties/la-picasso/sitting-3.jpeg",
+        "/assets/properties/la-picasso/sitting-4.jpeg",
+      ],
       rooms: [
         "/assets/properties/la-picasso/room-1.jpeg",
         "/assets/properties/la-picasso/room-2.jpeg",
@@ -183,7 +191,6 @@ export const properties: PropertyRecord[] = [
       features: [
         "/assets/properties/la-picasso/gym.jpeg",
         "/assets/properties/la-picasso/boardroom.jpeg",
-        "/assets/properties/la-picasso/sitting.jpeg",
       ],
     },
     videos: [],
@@ -200,7 +207,7 @@ export const properties: PropertyRecord[] = [
   },
   {
     id: "pablo",
-    name: "Pablo",
+    name: "Pablo Guest house",
     description:
       "Friendly res with social lounges and outdoor space, safe and great for studying.",
     slug: "pablo",
@@ -278,7 +285,7 @@ export const properties: PropertyRecord[] = [
   },
   {
     id: "28",
-    name: "28",
+    name: "28 Genl Hertzog",
     description:
       "Small, calm res with a focused vibe, safe and secure for serious study.",
     slug: "28",
