@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -15,11 +16,11 @@ export default function Navbar() {
             <span className="leading-none"><span className="block text-base font-semibold tracking-wide">La Picasso</span><span className="mt-1 block text-[10px] font-medium uppercase tracking-[0.2em] text-white/55">Property Group</span></span>
           </Link>
           <div className="hidden items-center gap-2 rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/10 px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#f1d77d] lg:flex"><span className="h-1.5 w-1.5 rounded-full bg-[#D4AF37]" /> 2027 applications open</div>
-          <button type="button" aria-label={open ? "Close navigation" : "Open navigation"} aria-expanded={open} onClick={() => setOpen(!open)} className="rounded-full border border-white/25 px-3 py-2 text-xs font-semibold text-white md:hidden">{open ? "Close" : "Menu"}</button>
+          <button type="button" aria-label={open ? "Close navigation" : "Open navigation"} title={open ? "Close navigation" : "Open navigation"} aria-expanded={open} onClick={() => setOpen(!open)} className="rounded-full border border-white/25 px-3 py-2 text-xs font-semibold text-white md:hidden">{open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}</button>
           <nav className={`${open ? "flex" : "hidden"} basis-full flex-col gap-4 border-t border-white/10 pt-4 text-sm font-medium text-white md:flex md:basis-auto md:flex-row md:items-center md:gap-7 md:border-0 md:pt-0`}>
-            <Link className="transition hover:text-[#f1d77d]" href="/properties">Properties</Link>
-            <Link className="transition hover:text-[#f1d77d]" href="/about">About</Link>
-            <Link className="transition hover:text-[#f1d77d]" href="/contact">Contact</Link>
+            <Link className="transition hover:text-[#f1d77d]" href="/properties" onClick={() => setOpen(false)}>Properties</Link>
+            <Link className="transition hover:text-[#f1d77d]" href="/about" onClick={() => setOpen(false)}>About</Link>
+            <Link className="transition hover:text-[#f1d77d]" href="/contact" onClick={() => setOpen(false)}>Contact</Link>
           </nav>
           <div className="hidden items-center gap-3 md:flex">
             <a href="tel:+27769883928" className="rounded-full border border-white/35 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white transition hover:border-white hover:bg-white/10">Call us</a>
