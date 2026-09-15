@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --picasso-brown: #5D4037;
-  --picasso-light: #D7CCC8;
+  --picasso-brown: #4b342d;
+  --picasso-light: #eee7e1;
 }
 
 html {
@@ -12,7 +12,15 @@ html {
 }
 
 body {
-  background-color: #f7f3f1;
+  background-color: #fbfaf8;
+}
+
+button, a, input, select { transition: border-color 160ms ease, background-color 160ms ease, color 160ms ease, transform 160ms ease, box-shadow 160ms ease; }
+
+:focus-visible { outline: 3px solid rgba(212, 175, 55, 0.75); outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
 }
 
 * {

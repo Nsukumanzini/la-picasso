@@ -1,23 +1,14 @@
-import HeroSection from "@/components/landing/HeroSection";
-import ResShowcase from "@/components/landing/ResShowcase";
-import AccommodationGrid from "@/components/landing/AccommodationGrid";
-import PropertyPreviews from "@/components/landing/PropertyPreviews";
-import StatsCounter from "@/components/landing/StatsCounter";
-import TestimonialCarousel from "@/components/landing/TestimonialCarousel";
-import FAQAccordion from "@/components/landing/FAQAccordion";
-import MapPreview from "@/components/landing/MapPreview";
+import Image from "next/image";
+import Link from "next/link";
+import { propertyRecords } from "@/components/properties/propertiesData";
 
 export default function HomePage() {          
-  return (
-    <div className="bg-picasso-light/20 snap-y snap-mandatory">
-      <HeroSection />
-      <ResShowcase />
-      <AccommodationGrid />
-      <PropertyPreviews />
-      <StatsCounter />
-      <TestimonialCarousel />
-      <FAQAccordion />
-      <MapPreview />
-    </div>
-  );
+  return <div className="bg-[#fbfaf8] pb-20">
+    <section className="mx-auto grid max-w-6xl gap-10 px-4 pb-16 pt-14 sm:px-6 lg:grid-cols-[1fr_0.9fr] lg:items-center lg:pt-24 lg:px-8">
+      <div><p className="text-sm font-semibold uppercase tracking-[0.22em] text-picasso-brown">Student accommodation · Ermelo</p><h1 className="mt-4 max-w-xl font-serif text-5xl leading-[1.08] text-neutral-900 sm:text-6xl">A better place to begin your student life.</h1><p className="mt-5 max-w-lg text-lg leading-8 text-neutral-600">Secure, NSFAS-focused student residences close to GS Ermelo Campus—with clear information and real support from first enquiry to move-in.</p><div className="mt-8 flex flex-wrap gap-3"><Link href="/properties" className="rounded-full bg-picasso-brown px-6 py-3 text-sm font-semibold text-white">Explore residences <span aria-hidden="true">→</span></Link><Link href="/apply" className="rounded-full border border-picasso-brown/30 bg-white px-6 py-3 text-sm font-semibold text-picasso-brown">Start an application</Link></div></div>
+      <div className="relative min-h-[340px] overflow-hidden rounded-[2rem] bg-picasso-light"><Image src="/assets/properties/legends-lodge/outside-8.jpeg" alt="Exterior of Legends Lodge" fill priority className="object-cover" sizes="(max-width: 1024px) 100vw, 45vw" /><div className="absolute bottom-4 left-4 rounded-xl bg-white/95 px-4 py-3 text-sm font-semibold text-neutral-900">Real spaces. Clear choices.</div></div>
+    </section>
+    <section className="border-y border-[#e8dfd8] bg-white"><div className="mx-auto grid max-w-6xl gap-6 px-4 py-8 sm:grid-cols-3 sm:px-6 lg:px-8"><div><p className="font-semibold text-neutral-900">NSFAS-focused</p><p className="mt-1 text-sm text-neutral-600">Straightforward guidance for your application.</p></div><div><p className="font-semibold text-neutral-900">Close to campus</p><p className="mt-1 text-sm text-neutral-600">Residences within easy reach of GS Ermelo Campus.</p></div><div><p className="font-semibold text-neutral-900">Made for students</p><p className="mt-1 text-sm text-neutral-600">Wi-Fi, security, study spaces and practical support.</p></div></div></section>
+    <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8"><div className="flex items-end justify-between gap-4"><div><p className="text-sm font-semibold uppercase tracking-[0.22em] text-picasso-brown">Choose your residence</p><h2 className="mt-2 font-serif text-3xl text-neutral-900">Four places to start</h2></div><Link href="/properties" className="hidden text-sm font-semibold text-picasso-brown sm:block">See all →</Link></div><div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">{propertyRecords.map((property)=><Link href={`/properties/${property.slug}`} key={property.id} className="group overflow-hidden rounded-2xl border border-[#e8dfd8] bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"><div className="relative h-44"><Image src={property.mainImage} alt={`${property.name} exterior`} fill className="object-cover transition group-hover:scale-105" sizes="(max-width: 640px) 100vw, 25vw" /></div><div className="p-4"><h3 className="font-semibold text-neutral-900">{property.name}</h3><p className="mt-2 text-sm text-neutral-600">{property.distance}</p><span className="mt-4 inline-block text-sm font-semibold text-picasso-brown">View details <span aria-hidden="true">→</span></span></div></Link>)}</div></section>
+  </div>;
 }

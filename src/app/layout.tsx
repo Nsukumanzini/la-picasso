@@ -25,31 +25,22 @@ const bodyFont = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://lapicasso.co.za"),
   title: {
-    default: "La Picasso Property Group (Pty) Ltd | Student Homes in [City]",
+    default: "La Picasso | Student accommodation in Ermelo",
     template: "%s | La Picasso Property Group (Pty) Ltd",
   },
   description:
-    "Premium student homes in [City] with modern features, secure living, and a campus-ready lifestyle.",
+    "Simple, secure student accommodation close to GS Ermelo Campus.",
   keywords: [
     "Student homes",
     "La Picasso",
     "Student res",
     "Campus living",
-    "[City]",
+    "Ermelo",
   ],
   openGraph: {
-    title: "La Picasso Property Group (Pty) Ltd",
-    description:
-      "Premium student homes in [City] from La Picasso Property Group (Pty) Ltd.",
+    title: "La Picasso student accommodation",
+    description: "Find a secure, NSFAS-focused student home in Ermelo.",
     type: "website",
-    images: [
-      {
-        url: "/assets/og-default.jpeg",
-        width: 1200,
-        height: 630,
-        alt: "La Picasso Property Group",
-      },
-    ],
   },
 };
 

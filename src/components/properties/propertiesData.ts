@@ -77,7 +77,7 @@ export const propertyRecords: PropertyRecord[] = [
         "/assets/properties/legends-lodge/laundry-4.jpeg",
         "/assets/properties/legends-lodge/laundry-5.jpeg",
       ],
-      parking: ["/assets/properties/legends-lodge/parking-1.jpeg"],
+      parking: ["/assets/properties/legends-lodge/parking-2.jpeg"],
     },
     videos: [
       { src: "/assets/properties/legends-lodge/main-video.mp4", label: "Main Tour" },
@@ -122,7 +122,7 @@ export const propertyRecords: PropertyRecord[] = [
       "/assets/properties/la-picasso/main.jpeg",
       "/assets/properties/la-picasso/gym.jpeg",
       "/assets/properties/la-picasso/boardroom.jpeg",
-      "/assets/properties/la-picasso/sitting.jpeg",
+      "/assets/properties/la-picasso/sitting-1.jpeg",
       "/assets/properties/la-picasso/outside-1.jpeg",
     ],
     gallery: {
@@ -136,14 +136,14 @@ export const propertyRecords: PropertyRecord[] = [
         "/assets/properties/la-picasso/room-5.jpeg",
         "/assets/properties/la-picasso/room-6.jpeg",
         "/assets/properties/la-picasso/room-7.jpeg",
-        "/assets/properties/la-picasso/room-8.jpeg",
+        "/assets/properties/la-picasso/room-7.jpeg",
       ],
       bathrooms: [
         "/assets/properties/la-picasso/bathroom-2.jpeg",
         "/assets/properties/la-picasso/bathroom-3.jpeg",
-        "/assets/properties/la-picasso/bathroom-4.jpeg",
-        "/assets/properties/la-picasso/bathroom-5.jpeg",
-        "/assets/properties/la-picasso/bathroom-6.jpeg",
+        "/assets/properties/la-picasso/bathroom-1.jpeg",
+        "/assets/properties/la-picasso/bathroom-2.jpeg",
+        "/assets/properties/la-picasso/bathroom-3.jpeg",
       ],
       outside: [
         "/assets/properties/la-picasso/outside-1.jpeg",
@@ -153,7 +153,7 @@ export const propertyRecords: PropertyRecord[] = [
       features: [
         "/assets/properties/la-picasso/gym.jpeg",
         "/assets/properties/la-picasso/boardroom.jpeg",
-        "/assets/properties/la-picasso/sitting.jpeg",
+        "/assets/properties/la-picasso/sitting-1.jpeg",
       ],
     },
     videos: [],
@@ -201,8 +201,8 @@ export const propertyRecords: PropertyRecord[] = [
         "/assets/properties/pablo/room-4.jpeg",
         "/assets/properties/pablo/room-5.jpeg",
         "/assets/properties/pablo/room-6.jpeg",
-        "/assets/properties/pablo/room-7.jpeg",
-        "/assets/properties/pablo/room-8.jpeg",
+        "/assets/properties/pablo/room-5.jpeg",
+        "/assets/properties/pablo/room-6.jpeg",
       ],
       kitchen: [
         "/assets/properties/pablo/kitchen-1.jpeg",
