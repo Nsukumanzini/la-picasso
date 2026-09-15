@@ -66,6 +66,10 @@ const standardPackage = [
   "Water & Electricity Included",
 ];
 
+export function generateStaticParams() {
+  return propertyRecords.map((property) => ({ slug: property.slug }));
+}
+
 export default function PropertyDetailsPage({
   params,
 }: {
