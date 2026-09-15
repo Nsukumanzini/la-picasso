@@ -67,7 +67,7 @@ export default function Footer() {
             </li>
             <li>
               <Link className="transition hover:text-white" href="/apply">
-                Apply Now
+                Apply for 2027
               </Link>
             </li>
             <li>
@@ -130,7 +130,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="border-t border-white/10 py-6 text-center text-xs text-white/60">
-        © 2026 La Picasso Property Group (Pty) Ltd. All rights reserved.
+        © 2027 La Picasso Property Group (Pty) Ltd. All rights reserved.
       </div>
     </footer>
   );
