@@ -129,9 +129,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="border-t border-white/10 py-6 text-center text-xs text-white/60">
-        © 2027 La Picasso Property Group (Pty) Ltd. All rights reserved.
-      </div>
+      <div className="flex flex-wrap items-center justify-center gap-y-2 border-t border-white/10 px-4 py-6 text-center text-xs text-white/60"><span>© 2027 La Picasso Property Group (Pty) Ltd. All rights reserved.</span><span className="mx-2 text-white/30">•</span><span>Website created by <a href="https://ogtechnologies.co.za" target="_blank" rel="noreferrer" className="font-semibold text-white transition hover:text-[#f1d77d]">OG Technologies</a></span></div>
     </footer>
   );
 }
