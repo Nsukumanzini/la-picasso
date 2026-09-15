@@ -3,7 +3,6 @@ import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navigation/Navbar";
 import MobileBottomBar from "@/components/navigation/MobileBottomBar";
-import GlobalBackButton from "@/components/navigation/GlobalBackButton";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ScrollProgress from "@/components/ui/ScrollProgress";
@@ -58,7 +57,6 @@ export default function RootLayout({
         <ToastProvider>
           <ScrollProgress />
           <Navbar />
-          <GlobalBackButton />
           <main className="min-h-screen pt-24 pb-24">{children}</main>
           <Footer />
           <WhatsAppButton />
