@@ -7,7 +7,7 @@ export default function ApplyPage() {
         <header className="space-y-2">
           <p className="text-sm font-semibold uppercase tracking-[0.22em] text-picasso-brown">Apply for 2027 accommodation</p>
           <h1 className="font-serif text-4xl text-neutral-900">Your next step starts here.</h1>
-          <p className="max-w-2xl text-base leading-7 text-neutral-600">Share your details, choose a residence and upload your NSFAS proof. Our team will guide you through the next steps.</p>
+          <p className="max-w-2xl text-base leading-7 text-neutral-600">Share your details, choose a residence and tell us what you need. Our team will guide you through the next steps—no documents are required for this first enquiry.</p>
         </header>
         <ApplyClient />
       </div>
