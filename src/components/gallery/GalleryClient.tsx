@@ -79,6 +79,15 @@ export default function GalleryClient() {
 
   const handleClose = () => setIsLightboxOpen(false);
 
+  const visibleCategories = useMemo(() => {
+    const selectedProperties = activeProperty === "all"
+      ? propertyRecords
+      : propertyRecords.filter((property) => property.id === activeProperty);
+    return categories.filter((category) =>
+      category.key === "all" || selectedProperties.some((property) => getCategoryImages(property, category.key).length > 0)
+    );
+  }, [activeProperty]);
+
   const filteredImages = useMemo(() => {
     const selectedProperties =
       activeProperty === "all"
@@ -102,14 +111,14 @@ export default function GalleryClient() {
             A closer look at our res
           </h1>
           <p className="text-sm text-neutral-600">
-            Browse rooms, kitchens, and shared spaces across all four properties.
+            Browse rooms and shared spaces across all four properties.
           </p>
         </header>
 
         <div className="flex flex-wrap gap-2">
           <button
             type="button"
-            onClick={() => setActiveProperty("all")}
+            onClick={() => { setActiveProperty("all"); setActiveCategory("all"); }}
             className={`rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-wide transition ${
               activeProperty === "all"
                 ? "bg-picasso-brown text-white"
@@ -122,7 +131,7 @@ export default function GalleryClient() {
             <button
               key={property.id}
               type="button"
-              onClick={() => setActiveProperty(property.id)}
+              onClick={() => { setActiveProperty(property.id); setActiveCategory("all"); }}
               className={`rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-wide transition ${
                 activeProperty === property.id
                   ? "bg-picasso-brown text-white"
@@ -135,7 +144,7 @@ export default function GalleryClient() {
         </div>
 
         <div className="flex flex-wrap gap-2">
-          {categories.map((category) => (
+          {visibleCategories.map((category) => (
             <button
               key={category.key}
               type="button"

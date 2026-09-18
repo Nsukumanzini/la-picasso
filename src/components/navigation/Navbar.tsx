@@ -15,7 +15,9 @@ export default function Navbar() {
           <div className="hidden items-center gap-2 rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/10 px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#f1d77d] lg:flex"><span className="h-1.5 w-1.5 rounded-full bg-[#D4AF37]" /> 2027 applications open</div>
           <Link href="/apply" className="rounded-full bg-[#D4AF37] px-4 py-2.5 text-[11px] font-semibold uppercase tracking-wide text-[#3E2723] shadow-md md:hidden">Apply for 2027</Link>
           <nav className="hidden basis-full flex-col gap-4 border-t border-white/10 pt-4 text-sm font-medium text-white md:flex md:basis-auto md:flex-row md:items-center md:gap-7 md:border-0 md:pt-0">
-            <Link className="transition hover:text-[#f1d77d]" href="/properties">Properties</Link>
+            <Link className="transition hover:text-[#f1d77d]" href="/">Home</Link>
+            <Link className="transition hover:text-[#f1d77d]" href="/properties">Our Places</Link>
+            <Link className="transition hover:text-[#f1d77d]" href="/gallery">Gallery</Link>
             <Link className="transition hover:text-[#f1d77d]" href="/about">About</Link>
             <Link className="transition hover:text-[#f1d77d]" href="/contact">Contact</Link>
           </nav>
