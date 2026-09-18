@@ -1,0 +1,30 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /applications/{applicationId} {
+      allow create: if request.resource.data.keys().hasAll([
+        'property', 'fullName', 'surname', 'idNumber', 'dateOfBirth',
+        'gender', 'cellphone', 'guardianName', 'guardianCellphone',
+        'street', 'town', 'declaration', 'status', 'submittedAt', 'source'
+      ])
+      && request.resource.data.property is string
+      && request.resource.data.fullName is string
+      && request.resource.data.surname is string
+      && request.resource.data.idNumber is string
+      && request.resource.data.dateOfBirth is string
+      && request.resource.data.gender is string
+      && request.resource.data.cellphone is string
+      && request.resource.data.guardianName is string
+      && request.resource.data.guardianCellphone is string
+      && request.resource.data.street is string
+      && request.resource.data.town is string
+      && request.resource.data.declaration == true
+      && request.resource.data.status == 'new'
+      && request.resource.data.source == 'la-picasso-public-site'
+      && request.resource.data.submittedAt == request.time;
+
+      allow read, update, delete: if false;
+    }
+  }
+}

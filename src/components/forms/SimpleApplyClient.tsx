@@ -5,6 +5,8 @@ import { useForm, useWatch } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { propertyRecords } from "../properties/propertiesData";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { db } from "@/lib/firebase";
 
 const schema = z.object({
   property: z.string().min(1, "Choose a residence"),
@@ -47,6 +49,7 @@ function imagesFor(property: (typeof propertyRecords)[number]) {
 export default function SimpleApplyClient() {
   const [step, setStep] = React.useState<Step>(1);
   const [sent, setSent] = React.useState(false);
+  const [submitError, setSubmitError] = React.useState<string | null>(null);
   const [slide, setSlide] = React.useState(0);
   const [declarationOpen, setDeclarationOpen] = React.useState(false);
   const { register, handleSubmit, trigger, control, formState: { errors, isSubmitting } } = useForm<Values>({
@@ -68,7 +71,15 @@ export default function SimpleApplyClient() {
     return () => window.clearInterval(timer);
   }, [selectedSlug, selectedImages.length]);
 
-  const onSubmit = () => setSent(true);
+  const onSubmit = async (values: Values) => {
+    setSubmitError(null);
+    try {
+      await addDoc(collection(db, "applications"), { ...values, status: "new", source: "la-picasso-public-site", submittedAt: serverTimestamp() });
+      setSent(true);
+    } catch {
+      setSubmitError("We could not submit your application. Please try again.");
+    }
+  };
   const goNext = async () => {
     const fields = step === 1
       ? ["property"]
@@ -118,6 +129,7 @@ export default function SimpleApplyClient() {
 
       {step === 4 ? <section className="py-7" aria-labelledby="address-heading"><p id="address-heading" className="text-lg font-semibold text-neutral-900">Home address and declaration</p><p className="mt-1 text-sm leading-6 text-neutral-600">Finish with your current home address and confirm that you understand the application.</p><div className="mt-5 grid gap-5 sm:grid-cols-2"><label>Street<input {...register("street")} autoComplete="street-address" className={input} />{errors.street && <span className={errorText}>{errors.street.message}</span>}</label><label>Town<input {...register("town")} autoComplete="address-level2" className={input} />{errors.town && <span className={errorText}>{errors.town.message}</span>}</label></div><div className="mt-6 rounded-2xl border border-[#eadfce] bg-[#fbf7ef] p-5"><button type="button" onClick={() => setDeclarationOpen((open) => !open)} className="text-left text-sm font-semibold text-picasso-brown underline underline-offset-4">Read the student declaration {declarationOpen ? "↑" : "↓"}</button>{declarationOpen ? <p className="mt-4 text-sm leading-7 text-neutral-700">I declare that the information provided in this application is true and complete to the best of my knowledge. I understand that submitting an application does not guarantee placement, and that La Picasso may contact me or my parent/guardian to verify the information supplied. I agree to follow the residence rules and provide any further information requested during the placement process.</p> : null}<label className="mt-5 flex items-start gap-3 text-sm leading-6 text-neutral-700"><input {...register("declaration")} type="checkbox" className="mt-1 h-5 w-5 rounded border-[#d9ccc3] accent-[#6c4435]" /> <span>I have read and understood the student declaration.</span></label>{errors.declaration && <span className={errorText}>{errors.declaration.message}</span>}</div></section> : null}
 
+      {submitError ? <p role="alert" className="mb-4 rounded-xl bg-rose-50 px-4 py-3 text-sm text-rose-700">{submitError}</p> : null}
       <div className="flex flex-col-reverse gap-3 border-t border-[#eee6e0] pt-6 sm:flex-row sm:items-center sm:justify-between">{step > 1 ? <button type="button" onClick={() => setStep((current) => (current - 1) as Step)} className="rounded-full border border-picasso-brown/30 px-6 py-3 text-sm font-semibold text-picasso-brown transition hover:bg-[#fbf7ef]">Back</button> : <p className="max-w-md text-sm leading-6 text-neutral-500">No documents are required for this application enquiry.</p>}{step < 4 ? <button type="button" onClick={goNext} className="rounded-full bg-picasso-brown px-6 py-3 text-sm font-semibold text-white shadow-md shadow-picasso-brown/15 transition hover:-translate-y-0.5 hover:bg-[#3d2924]">Continue <span aria-hidden="true">→</span></button> : <button type="submit" disabled={isSubmitting} className="rounded-full bg-picasso-brown px-6 py-3 text-sm font-semibold text-white shadow-md shadow-picasso-brown/15 transition hover:-translate-y-0.5 hover:bg-[#3d2924] disabled:opacity-60">Submit application</button>}</div>
     </form>
   );
