@@ -126,7 +126,15 @@ export const propertyRecords: PropertyRecord[] = [
       "/assets/properties/la-picasso/outside-1.jpeg",
     ],
     gallery: {
-      kitchen: [],
+      kitchen: [
+        "/assets/properties/la-picasso/kitchen-1.jpeg",
+        "/assets/properties/la-picasso/kitchen-2.jpeg",
+        "/assets/properties/la-picasso/kitchen-3.jpeg",
+        "/assets/properties/la-picasso/kitchen-4.jpeg",
+        "/assets/properties/la-picasso/kitchen-5.jpeg",
+        "/assets/properties/la-picasso/kitchen-6.jpeg",
+        "/assets/properties/la-picasso/kitchen-7.jpeg",
+      ],
       sittingAreas: [],
       rooms: [
         "/assets/properties/la-picasso/room-1.jpeg",
