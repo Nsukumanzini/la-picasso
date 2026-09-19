@@ -2,52 +2,155 @@ rules_version = '2';
 
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /applications/{applicationId} {
-      allow create: if request.resource.data.keys().hasAll([
-        'property', 'fullName', 'surname', 'idNumber', 'dateOfBirth',
-        'gender', 'cellphone', 'guardianName', 'guardianCellphone',
-        'street', 'town', 'declaration', 'status', 'submittedAt', 'source'
-      ])
-      && request.resource.data.keys().hasOnly([
-        'property', 'fullName', 'surname', 'idNumber', 'dateOfBirth',
-        'gender', 'cellphone', 'guardianName', 'guardianCellphone',
-        'street', 'town', 'declaration', 'status', 'submittedAt', 'source'
-      ])
-      && request.resource.data.property is string
-      && request.resource.data.property in ['legends-lodge', 'la-picasso', 'pablo', '28']
-      && request.resource.data.fullName is string
-      && request.resource.data.fullName.size() >= 2
-      && request.resource.data.fullName.size() <= 100
-      && request.resource.data.surname is string
-      && request.resource.data.surname.size() >= 2
-      && request.resource.data.surname.size() <= 100
-      && request.resource.data.idNumber is string
-      && request.resource.data.idNumber.matches('^[0-9]{13}$')
-      && request.resource.data.dateOfBirth is string
-      && request.resource.data.dateOfBirth.matches('^[0-9]{4}-[0-9]{2}-[0-9]{2}$')
-      && request.resource.data.gender is string
-      && request.resource.data.gender in ['Female', 'Male', 'Non-binary', 'Prefer not to say']
-      && request.resource.data.cellphone is string
-      && request.resource.data.cellphone.size() >= 9
-      && request.resource.data.cellphone.size() <= 20
-      && request.resource.data.guardianName is string
-      && request.resource.data.guardianName.size() >= 2
-      && request.resource.data.guardianName.size() <= 120
-      && request.resource.data.guardianCellphone is string
-      && request.resource.data.guardianCellphone.size() >= 9
-      && request.resource.data.guardianCellphone.size() <= 20
-      && request.resource.data.street is string
-      && request.resource.data.street.size() >= 3
-      && request.resource.data.street.size() <= 200
-      && request.resource.data.town is string
-      && request.resource.data.town.size() >= 2
-      && request.resource.data.town.size() <= 100
-      && request.resource.data.declaration == true
-      && request.resource.data.status == 'new'
-      && request.resource.data.source == 'la-picasso-public-site'
-      && request.resource.data.submittedAt == request.time;
+    function staffPath(uid) {
+      return /databases/$(database)/documents/staff/$(uid);
+    }
 
-      allow read, update, delete: if false;
+    function activeStaff() {
+      return request.auth != null
+        && exists(staffPath(request.auth.uid))
+        && get(staffPath(request.auth.uid)).data.active == true
+        && get(staffPath(request.auth.uid)).data.role in ['admin', 'reviewer'];
+    }
+
+    function activeAdmin() {
+      return activeStaff()
+        && get(staffPath(request.auth.uid)).data.role == 'admin';
+    }
+
+    function validApplicationCreate() {
+      return request.resource.data.keys().hasAll([
+          'property', 'fullName', 'surname', 'idNumber', 'dateOfBirth',
+          'gender', 'cellphone', 'guardianName', 'guardianCellphone',
+          'street', 'town', 'declaration', 'status', 'submittedAt', 'source'
+        ])
+        && request.resource.data.keys().hasOnly([
+          'property', 'fullName', 'surname', 'idNumber', 'dateOfBirth',
+          'gender', 'cellphone', 'guardianName', 'guardianCellphone',
+          'street', 'town', 'declaration', 'status', 'submittedAt', 'source'
+        ])
+        && request.resource.data.property is string
+        && request.resource.data.property in ['legends-lodge', 'la-picasso', 'pablo', '28']
+        && request.resource.data.fullName is string
+        && request.resource.data.fullName.size() >= 2
+        && request.resource.data.fullName.size() <= 100
+        && request.resource.data.surname is string
+        && request.resource.data.surname.size() >= 2
+        && request.resource.data.surname.size() <= 100
+        && request.resource.data.idNumber is string
+        && request.resource.data.idNumber.matches('^[0-9]{13}$')
+        && request.resource.data.dateOfBirth is string
+        && request.resource.data.dateOfBirth.matches('^[0-9]{4}-[0-9]{2}-[0-9]{2}$')
+        && request.resource.data.gender is string
+        && request.resource.data.gender in ['Female', 'Male', 'Non-binary', 'Prefer not to say']
+        && request.resource.data.cellphone is string
+        && request.resource.data.cellphone.size() >= 9
+        && request.resource.data.cellphone.size() <= 20
+        && request.resource.data.guardianName is string
+        && request.resource.data.guardianName.size() >= 2
+        && request.resource.data.guardianName.size() <= 120
+        && request.resource.data.guardianCellphone is string
+        && request.resource.data.guardianCellphone.size() >= 9
+        && request.resource.data.guardianCellphone.size() <= 20
+        && request.resource.data.street is string
+        && request.resource.data.street.size() >= 3
+        && request.resource.data.street.size() <= 200
+        && request.resource.data.town is string
+        && request.resource.data.town.size() >= 2
+        && request.resource.data.town.size() <= 100
+        && request.resource.data.declaration == true
+        && request.resource.data.status == 'new'
+        && request.resource.data.source == 'la-picasso-public-site'
+        && request.resource.data.submittedAt == request.time;
+    }
+
+    function validReviewUpdate() {
+      return activeStaff()
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly([
+          'status', 'staffNotes', 'reviewedBy', 'reviewedAt', 'updatedAt'
+        ])
+        && request.resource.data.status in [
+          'new', 'reviewing', 'approved', 'waitlisted', 'declined', 'withdrawn'
+        ]
+        && request.resource.data.staffNotes is string
+        && request.resource.data.staffNotes.size() <= 2000
+        && request.resource.data.reviewedBy == request.auth.uid
+        && request.resource.data.reviewedAt == request.time
+        && request.resource.data.updatedAt == request.time;
+    }
+
+    match /applications/{applicationId} {
+      allow create: if validApplicationCreate();
+      allow get, list: if activeStaff();
+      allow update: if validReviewUpdate();
+      allow delete: if false;
+
+      match /activity/{activityId} {
+        allow get, list: if activeStaff();
+        allow create: if activeStaff()
+          && request.resource.data.keys().hasAll([
+            'action', 'actorUid', 'actorEmail', 'actorName',
+            'fromStatus', 'status', 'note', 'createdAt'
+          ])
+          && request.resource.data.keys().hasOnly([
+            'action', 'actorUid', 'actorEmail', 'actorName',
+            'fromStatus', 'status', 'note', 'createdAt'
+          ])
+          && request.resource.data.action in ['status_changed', 'note_added']
+          && request.resource.data.actorUid == request.auth.uid
+          && request.resource.data.actorEmail is string
+          && request.resource.data.actorEmail.size() <= 254
+          && request.resource.data.actorName is string
+          && request.resource.data.actorName.size() <= 120
+          && request.resource.data.fromStatus in [
+            'new', 'reviewing', 'approved', 'waitlisted', 'declined', 'withdrawn'
+          ]
+          && request.resource.data.status in [
+            'new', 'reviewing', 'approved', 'waitlisted', 'declined', 'withdrawn'
+          ]
+          && request.resource.data.note is string
+          && request.resource.data.note.size() <= 2000
+          && request.resource.data.createdAt == request.time;
+        allow update, delete: if false;
+      }
+    }
+
+    match /staff/{staffId} {
+      allow get: if request.auth != null
+        && (request.auth.uid == staffId || activeAdmin());
+      allow list: if activeAdmin();
+      allow create: if activeAdmin()
+        && request.resource.data.keys().hasAll([
+          'name', 'email', 'role', 'active', 'createdAt', 'createdBy'
+        ])
+        && request.resource.data.keys().hasOnly([
+          'name', 'email', 'role', 'active', 'createdAt', 'createdBy'
+        ])
+        && request.resource.data.name is string
+        && request.resource.data.name.size() >= 2
+        && request.resource.data.name.size() <= 120
+        && request.resource.data.email is string
+        && request.resource.data.email.size() <= 254
+        && request.resource.data.role in ['admin', 'reviewer']
+        && request.resource.data.active == true
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.createdBy == request.auth.uid;
+      allow update: if activeAdmin()
+        && request.auth.uid != staffId
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly([
+          'name', 'email', 'role', 'active', 'updatedAt'
+        ])
+        && request.resource.data.name is string
+        && request.resource.data.name.size() >= 2
+        && request.resource.data.name.size() <= 120
+        && request.resource.data.email is string
+        && request.resource.data.email.size() <= 254
+        && request.resource.data.role in ['admin', 'reviewer']
+        && request.resource.data.active is bool
+        && request.resource.data.updatedAt == request.time;
+      allow delete: if activeAdmin()
+        && request.auth.uid != staffId
+        && resource.data.role != 'admin';
     }
   }
 }
