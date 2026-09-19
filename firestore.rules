@@ -8,17 +8,40 @@ service cloud.firestore {
         'gender', 'cellphone', 'guardianName', 'guardianCellphone',
         'street', 'town', 'declaration', 'status', 'submittedAt', 'source'
       ])
+      && request.resource.data.keys().hasOnly([
+        'property', 'fullName', 'surname', 'idNumber', 'dateOfBirth',
+        'gender', 'cellphone', 'guardianName', 'guardianCellphone',
+        'street', 'town', 'declaration', 'status', 'submittedAt', 'source'
+      ])
       && request.resource.data.property is string
+      && request.resource.data.property in ['legends-lodge', 'la-picasso', 'pablo', '28']
       && request.resource.data.fullName is string
+      && request.resource.data.fullName.size() >= 2
+      && request.resource.data.fullName.size() <= 100
       && request.resource.data.surname is string
+      && request.resource.data.surname.size() >= 2
+      && request.resource.data.surname.size() <= 100
       && request.resource.data.idNumber is string
+      && request.resource.data.idNumber.matches('^[0-9]{13}$')
       && request.resource.data.dateOfBirth is string
+      && request.resource.data.dateOfBirth.matches('^[0-9]{4}-[0-9]{2}-[0-9]{2}$')
       && request.resource.data.gender is string
+      && request.resource.data.gender in ['Female', 'Male', 'Non-binary', 'Prefer not to say']
       && request.resource.data.cellphone is string
+      && request.resource.data.cellphone.size() >= 9
+      && request.resource.data.cellphone.size() <= 20
       && request.resource.data.guardianName is string
+      && request.resource.data.guardianName.size() >= 2
+      && request.resource.data.guardianName.size() <= 120
       && request.resource.data.guardianCellphone is string
+      && request.resource.data.guardianCellphone.size() >= 9
+      && request.resource.data.guardianCellphone.size() <= 20
       && request.resource.data.street is string
+      && request.resource.data.street.size() >= 3
+      && request.resource.data.street.size() <= 200
       && request.resource.data.town is string
+      && request.resource.data.town.size() >= 2
+      && request.resource.data.town.size() <= 100
       && request.resource.data.declaration == true
       && request.resource.data.status == 'new'
       && request.resource.data.source == 'la-picasso-public-site'
