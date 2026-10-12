@@ -2,17 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Cormorant_Garamond } from "next/font/google";
-
-// ── Font: loaded at module scope — valid in "use client" components.
-// No changes to layout.tsx needed; this font is self-contained here.
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["300", "400", "600"],
-  style: ["normal", "italic"],
-  display: "swap",
-});
-
 // Single source of truth — drives both the dismiss timer and the progress bar animation.
 const DISPLAY_DURATION = 3500; // ms (3.5 seconds)
 
@@ -74,21 +63,21 @@ export default function SplashScreen() {
 
             {/* Welcome line */}
             <p
-              className={`${cormorant.className} text-lg font-light tracking-[0.28em] uppercase text-white/70 sm:text-xl`}
+              className="font-serif text-lg font-light tracking-[0.28em] uppercase text-white/70 sm:text-xl"
             >
               Welcome to
             </p>
 
             {/* Primary wordmark */}
             <h1
-              className={`${cormorant.className} text-5xl font-semibold italic tracking-[0.08em] text-[#D4AF37] sm:text-6xl md:text-7xl lg:text-8xl`}
+              className="font-serif text-5xl font-semibold italic tracking-[0.08em] text-[#D4AF37] sm:text-6xl md:text-7xl lg:text-8xl"
             >
               La Picasso
             </h1>
 
             {/* Subtitle */}
             <p
-              className={`${cormorant.className} text-base font-light tracking-[0.3em] uppercase text-white/80 sm:text-lg`}
+              className="font-serif text-base font-light tracking-[0.3em] uppercase text-white/80 sm:text-lg"
             >
               Student Accommodation
             </p>

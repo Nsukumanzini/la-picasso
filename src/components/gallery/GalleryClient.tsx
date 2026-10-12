@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { propertyRecords } from "../properties/propertiesData";
 import ImageLightbox from "../property-details/ImageLightbox";
+import PropertyTourButton from "../property-details/PropertyTourButton";
 
 const categories = [
   { key: "all", label: "All" },
@@ -100,6 +101,10 @@ export default function GalleryClient() {
     return shuffleImages(unique);
   }, [activeCategory, activeProperty]);
 
+  const tourProperties = activeProperty === "all"
+    ? propertyRecords.filter((property) => property.videos?.length)
+    : propertyRecords.filter((property) => property.id === activeProperty && property.videos?.length);
+
   return (
     <div className="min-h-screen bg-picasso-light/20 pb-24 pt-28">
       <div className="mx-auto max-w-6xl space-y-10 px-4 sm:px-6 lg:px-8">
@@ -159,6 +164,8 @@ export default function GalleryClient() {
             </button>
           ))}
         </div>
+
+        {tourProperties.length ? <section className="rounded-2xl border border-[#e8dfd8] bg-white p-4 shadow-sm sm:p-5"><p className="text-xs font-semibold uppercase tracking-[0.22em] text-picasso-brown">Property video tours</p><div className="mt-3 flex flex-wrap gap-3">{tourProperties.map((property) => <PropertyTourButton key={property.id} title={property.name} videos={property.videos ?? []} />)}</div></section> : null}
 
         <div className="grid grid-cols-3 gap-3 sm:gap-4">
           {filteredImages.map((src, index) => (

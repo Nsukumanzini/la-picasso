@@ -9,7 +9,7 @@ import ResidenceManager from "@/components/property-details/ResidenceManager";
 import PropertyFAQ from "@/components/property-details/PropertyFAQ";
 import PropertyReviews from "@/components/property-details/PropertyReviews";
 import NeighborhoodMap from "@/components/property-details/NeighborhoodMap";
-import VideoCarousel from "@/components/property-details/VideoCarousel";
+import PropertyTourButton from "@/components/property-details/PropertyTourButton";
 import StickyBookingWidget from "@/components/property-details/StickyBookingWidget";
 import MobileActionBar from "@/components/property-details/MobileActionBar";
 import SimilarProperties from "@/components/property-details/SimilarProperties";
@@ -52,9 +52,8 @@ const reviews = [
 ];
 
 const manager = {
-  name: "Nandi Dlamini",
-  phone: "+27 82 555 0199",
-  email: "og.technologies@outlook.com",
+  name: "Nthabiseng",
+  phone: "072 811 1803",
 };
 
 const standardPackage = [
@@ -90,6 +89,10 @@ export default function PropertyDetailsPage({
     ...(property.gallery?.sittingAreas ?? []),
     ...(property.gallery?.bathrooms ?? []),
     ...(property.gallery?.outside ?? []),
+    ...(property.gallery?.features ?? []),
+    ...(property.gallery?.study ?? []),
+    ...(property.gallery?.laundry ?? []),
+    ...(property.gallery?.parking ?? []),
     ...property.images,
   ].filter(Boolean) as string[];
 
@@ -166,6 +169,7 @@ export default function PropertyDetailsPage({
               description={property.description}
               badges={[property.distance, property.address].filter(Boolean) as string[]}
             />
+            <PropertyTourButton title={property.name} videos={property.videos ?? []} />
             <div className="flex flex-wrap items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.25em] text-neutral-500">
               <span className="text-picasso-brown">On this page</span>
               <a className="transition hover:text-picasso-brown" href="#gallery">
@@ -202,9 +206,7 @@ export default function PropertyDetailsPage({
           <ResidenceManager
             name={manager.name}
             phone={manager.phone}
-            email={manager.email}
           />
-          <VideoCarousel videos={property.videos ?? []} />
           <PropertyReviews reviews={reviews} />
           <NeighborhoodMap property={property} />
           <PropertyFAQ items={faqs} />

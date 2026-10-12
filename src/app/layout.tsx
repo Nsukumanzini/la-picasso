@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navigation/Navbar";
 import MobileBottomBar from "@/components/navigation/MobileBottomBar";
@@ -8,18 +7,6 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import ScrollProgress from "@/components/ui/ScrollProgress";
 import SplashScreen from "@/components/ui/SplashScreen";
 import { ToastProvider } from "@/components/ui/Toast";
-
-const headingFont = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-heading",
-  display: "swap",
-});
-
-const bodyFont = Inter({
-  subsets: ["latin"],
-  variable: "--font-body",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://lapicasso.co.za"),
@@ -50,9 +37,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body
-        className={`${headingFont.variable} ${bodyFont.variable} bg-picasso-light/30 text-neutral-900 antialiased`}
-      >
+      <body className="bg-picasso-light/30 text-neutral-900 antialiased">
         <SplashScreen />
         <ToastProvider>
           <ScrollProgress />

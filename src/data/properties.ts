@@ -53,11 +53,7 @@ export const properties: PropertyRecord[] = [
     },
     gallery: {
       rooms: [
-        "/assets/properties/legends-lodge/room-1.jpeg",
         "/assets/properties/legends-lodge/room-2.jpeg",
-        "/assets/properties/legends-lodge/room-3.jpeg",
-        "/assets/properties/legends-lodge/room-4.jpeg",
-        "/assets/properties/legends-lodge/room-5.jpeg",
         "/assets/properties/legends-lodge/room-6.jpeg",
         "/assets/properties/legends-lodge/room-7.jpeg",
         "/assets/properties/legends-lodge/room-8.jpeg",
@@ -109,7 +105,12 @@ export const properties: PropertyRecord[] = [
         "/assets/properties/legends-lodge/laundry-4.jpeg",
         "/assets/properties/legends-lodge/laundry-5.jpeg",
       ],
-      parking: ["/assets/properties/legends-lodge/parking-2.jpeg"],
+      parking: [
+        "/assets/properties/legends-lodge/Parking-1.jpeg",
+        "/assets/properties/legends-lodge/parking-2.jpeg",
+        "/assets/properties/legends-lodge/parking-3.jpeg",
+        "/assets/properties/legends-lodge/parking-4.jpeg",
+      ],
     },
     videos: [
       { src: "/assets/properties/legends-lodge/main-video.mp4", label: "Main Tour" },

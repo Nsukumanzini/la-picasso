@@ -21,11 +21,7 @@ export const propertyRecords: PropertyRecord[] = [
     ],
     gallery: {
       rooms: [
-        "/assets/properties/legends-lodge/room-1.jpeg",
         "/assets/properties/legends-lodge/room-2.jpeg",
-        "/assets/properties/legends-lodge/room-3.jpeg",
-        "/assets/properties/legends-lodge/room-4.jpeg",
-        "/assets/properties/legends-lodge/room-5.jpeg",
         "/assets/properties/legends-lodge/room-6.jpeg",
         "/assets/properties/legends-lodge/room-7.jpeg",
         "/assets/properties/legends-lodge/room-8.jpeg",
@@ -77,7 +73,12 @@ export const propertyRecords: PropertyRecord[] = [
         "/assets/properties/legends-lodge/laundry-4.jpeg",
         "/assets/properties/legends-lodge/laundry-5.jpeg",
       ],
-      parking: ["/assets/properties/legends-lodge/parking-2.jpeg"],
+      parking: [
+        "/assets/properties/legends-lodge/Parking-1.jpeg",
+        "/assets/properties/legends-lodge/parking-2.jpeg",
+        "/assets/properties/legends-lodge/parking-3.jpeg",
+        "/assets/properties/legends-lodge/parking-4.jpeg",
+      ],
     },
     videos: [
       { src: "/assets/properties/legends-lodge/main-video.mp4", label: "Main Tour" },
@@ -192,9 +193,10 @@ export const propertyRecords: PropertyRecord[] = [
     googleMapsLink:
       "https://www.google.com/maps/search/?api=1&query=2%20Carolus-Reinecke%20St%2C%20Ermelo%2C%20Mpumalanga",
     listingType: "NSFAS",
-    mainImage: "/assets/properties/pablo/outside-1.jpeg",
+    mainImage: "/assets/properties/pablo/main.jpeg",
     logo: "/assets/properties/pablo/logo.png",
     images: [
+      "/assets/properties/pablo/main.jpeg",
       "/assets/properties/pablo/outside-1.jpeg",
       "/assets/properties/pablo/room-1.jpeg",
       "/assets/properties/pablo/kitchen-1.jpeg",

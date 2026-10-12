@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="bg-[#3f2b25] text-white">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.2fr_1fr_1fr_1fr_1fr] lg:px-8">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.2fr_1fr_1fr_1fr] lg:px-8">
         <div className="space-y-4">
           <p className="text-lg font-semibold tracking-wide">
             La Picasso Property Group
@@ -36,48 +36,6 @@ export default function Footer() {
             <li>
               <Link className="transition hover:text-white" href="/properties/28">
                 28 Genl Hertzog
-              </Link>
-            </li>
-          </ul>
-        </div>
-        <div className="space-y-3 text-sm">
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/70">
-            Quick Links
-          </p>
-          <ul className="space-y-2 text-white/80">
-            <li>
-              <Link className="transition hover:text-white" href="/about">
-                About
-              </Link>
-            </li>
-            <li>
-              <Link className="transition hover:text-white" href="/properties">
-                Properties
-              </Link>
-            </li>
-            <li>
-              <Link className="transition hover:text-white" href="/gallery">
-                Gallery
-              </Link>
-            </li>
-            <li>
-              <Link className="transition hover:text-white" href="/#faq">
-                FAQ
-              </Link>
-            </li>
-            <li>
-              <Link className="transition hover:text-white" href="/apply">
-                Apply for 2027
-              </Link>
-            </li>
-            <li>
-              <Link className="transition hover:text-white" href="/properties">
-                Virtual Tours
-              </Link>
-            </li>
-            <li>
-              <Link className="transition hover:text-white" href="/contact">
-                Contact
               </Link>
             </li>
           </ul>
@@ -129,7 +87,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="flex flex-wrap items-center justify-center gap-y-2 border-t border-white/10 px-4 py-6 text-center text-xs text-white/60"><span>© 2027 La Picasso Property Group (Pty) Ltd. All rights reserved.</span><span className="mx-2 text-white/30">•</span><span>Website created by <a href="https://ogtechnologies.co.za" target="_blank" rel="noreferrer" className="font-semibold text-white transition hover:text-[#f1d77d]">OG Technologies</a></span></div>
+      <div className="flex flex-col items-center justify-center gap-2 border-t border-white/10 px-4 pb-28 pt-6 text-center text-xs text-white/80 sm:flex-row sm:gap-0 sm:pb-6"><span>© 2026 La Picasso Property Group (Pty) Ltd. All rights reserved.</span><span className="hidden px-2 text-white/30 sm:inline">•</span><span>Website created by <a href="https://ogtechnologies.co.za" target="_blank" rel="noreferrer" className="font-semibold text-white transition hover:text-[#f1d77d]">OG Technologies</a></span></div>
     </footer>
   );
 }

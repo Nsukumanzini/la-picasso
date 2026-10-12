@@ -5,6 +5,8 @@
 :root {
   --picasso-brown: #4b342d;
   --picasso-light: #eee7e1;
+  --font-heading: Georgia, "Times New Roman", serif;
+  --font-body: Arial, Helvetica, sans-serif;
 }
 
 html {

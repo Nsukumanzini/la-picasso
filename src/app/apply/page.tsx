@@ -1,4 +1,5 @@
 import ApplyClient from "@/components/forms/SimpleApplyClient";
+import ApplicationStatusChecker from "@/components/forms/ApplicationStatusChecker";
 
 export default function ApplyPage() {
   return (
@@ -10,6 +11,7 @@ export default function ApplyPage() {
           <p className="max-w-2xl text-base leading-7 text-neutral-600">Share your details, choose a residence and tell us what you need. Our team will guide you through the next steps—no documents are required for this first enquiry.</p>
         </header>
         <ApplyClient />
+        <ApplicationStatusChecker />
       </div>
     </div>
   );

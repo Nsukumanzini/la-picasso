@@ -1,13 +1,11 @@
 type ResidenceManagerProps = {
   name: string;
   phone: string;
-  email: string;
 };
 
 export default function ResidenceManager({
   name,
   phone,
-  email,
 }: ResidenceManagerProps) {
   return (
     <section className="rounded-3xl border border-white/40 bg-white/80 p-6 shadow-lg backdrop-blur">
@@ -22,8 +20,7 @@ export default function ResidenceManager({
         </div>
       </div>
       <div className="mt-4 space-y-1 text-sm text-neutral-700">
-        <p>Phone: {phone}</p>
-        <p>Email: {email}</p>
+        <p>Phone: <a className="font-semibold text-picasso-brown underline underline-offset-4" href="tel:+27728111803">{phone}</a></p>
       </div>
     </section>
   );
